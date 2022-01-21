@@ -6,7 +6,7 @@ class Test extends Component {
     super(props)
     this.state = {
       delay: 100,
-      result: 'No result',
+      result: {text: 'No result'},
     }
 
     this.handleScan = this.handleScan.bind(this)
@@ -19,6 +19,7 @@ class Test extends Component {
   handleError(err){
     console.error(err)
   }
+  
   render(){
     const previewStyle = {
       position: 'relative',
@@ -26,6 +27,7 @@ class Test extends Component {
       width: '100%',
       background : 'black',
     }
+    console.log(this.state.result)
 
     const defineQr = {
       position: 'absolute',
@@ -37,7 +39,6 @@ class Test extends Component {
       top: '30%'
     }
 
-  
 
     return(
       <div >
@@ -50,10 +51,13 @@ class Test extends Component {
           <div style = {defineQr}>
             <img src = "https://img.freepik.com/free-vector/qr-code-vector-icon-black-qr-code-with-red-frame-isolated-vector-eps-10_532800-402.jpg?size=338&ext=jpg&ga=GA1.2.1696091912.1641772800"></img>
           </div>
-        <p>{this.state.result}</p>
       </div>
     )
   }
 }
 
+// function print() {
+//   console.log(this.state.result.text)
+//   return true;
+// }
 export default Test;
